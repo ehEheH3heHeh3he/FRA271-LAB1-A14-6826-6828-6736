@@ -1,0 +1,60 @@
+NorthShielded1 = [4045,4040,4040,4040,4040,3530,3270,3000,2840,2700,2600,2500,2450,2400,2350,2300,2250,2230,2200,2170,2165,2160,2150,2140,2120,2110,2110,2100,2100,2080,2080];
+NorthShielded2 = [4045,4045,4040,4040,4045,3505,3270,2995,2840,2685,2615,2515,2450,2420,2360,2285,2255,2215,2215,2170,2160,2150,2150,2135,2110,2105,2105,2105,2105,2090,2090];
+NorthShielded3 = [4045,4045,4045,4040,4035,3565,3320,3005,2820,2660,2605,2485,2445,2390,2345,2320,2255,2225,2180,2140,2140,2140,2140,2140,2140,2100,2090,2085,2085,2085,2065];
+NorthShielded4 = [4040,4035,4040,4040,4035,3535,3270,3040,2870,2705,2585,2480,2470,2405,2360,2270,2265,2240,2180,2160,2160,2160,2145,2140,2115,2115,2115,2055,2055,2055,2055];
+
+NorthBold1 = [4050,4050,4050,4050,4050,4045,3700,3280,3060,2900,2740,2610,2510,2440,2380,2335,2285,2250,2230,2200,2185,2165,2145,2140,2135,2125,2110,2100,2090,2085,2080];
+NorthBold2 = [4050,4055,4050,4050,4045,4055,3715,3290,3050,2905,2740,2615,2525,2445,2390,2335,2290,2260,2205,2195,2175,2155,2140,2140,2120,2120,2080,2080,2080,2080,2080];
+NorthBold3 = [4055,4050,4050,4050,4045,4035,3680,3255,3065,2930,2745,2610,2515,2465,2385,2330,2305,2260,2260,2205,2165,2140,2140,2140,2130,2120,2120,2080,2075,2075,2075];
+NorthBold4 = [4050,4050,4055,4055,4055,4025,3695,3305,3070,2930,2760,2620,2540,2450,2395,2330,2285,2235,2235,2180,2180,2160,2160,2155,2155,2140,2080,2080,2070,2070,2070];
+
+SouthShielded1 = [85,85,85,90,240,615,750,960,1200,1370,1470,1550,1610,1665,1710,1730,1770,1800,1825,1840,1850,1880,1885,1890,1900,1915,1920,1930,1940,1940,1945];
+SouthShielded2 = [85,90,85,90,225,605,755,960,1210,1365,1470,1560,1605,1670,1700,1725,1765,1785,1830,1835,1850,1885,1890,1900,1900,1910,1920,1920,1925,1925,1935];
+SouthShielded3 = [85,85,85,85,215,615,740,945,1190,1365,1480,1535,1610,1660,1705,1740,1775,1815,1825,1830,1845,1885,1885,1885,1900,1920,1950,1955,1955,1955,1955];
+SouthShielded4 = [85,85,80,90,245,630,755,935,1205,1370,1475,1570,1585,1660,1715,1715,1790,1805,1835,1835,1860,1895,1895,1895,1905,1905,1920,1930,1945,1950,1950];
+
+SouthBold1 = [80,80,80,85,90,90,365,760,975,1160,1315,1435,1510,1585,1640,1700,1760,1800,1830,1850,1860,1875,1890,1900,1915,1925,1935,1945,1945,1950,1950];
+SouthBold2 = [80,80,80,85,80,90,355,755,985,1140,1320,1440,1505,1570,1640,1695,1765,1800,1850,1850,1850,1875,1895,1915,1925,1930,1955,1955,1955,1955,1955];
+SouthBold3 = [80,80,80,85,90,90,360,750,975,1140,1295,1460,1495,1570,1660,1735,1745,1795,1835,1870,1870,1870,1900,1905,1910,1925,1925,1940,1940,1955,1955];
+SouthBold4 = [80,85,85,80,90,105,375,770,980,1190,1315,1410,1530,1580,1640,1715,1740,1785,1810,1840,1865,1880,1895,1895,1895,1925,1930,1950,1955,1955,1960];
+
+avgNorthShieldedVoltage = (mean([NorthShielded1;NorthShielded2;NorthShielded3;NorthShielded4])*3300/4095);
+avgNorthBoldVoltage = (mean([NorthBold1;NorthBold2;NorthBold3;NorthBold4])*3300/4095);
+avgSouthShieldedVoltage = (mean([SouthShielded1;SouthShielded2;SouthShielded3;SouthShielded4])*3300/4095);
+avgSouthBoldVoltage = (mean([SouthBold1;SouthBold2;SouthBold3;SouthBold4])*3300/4095);
+
+NorthShielded_B = (avgNorthShieldedVoltage-3300/2)/30;
+NorthBold_B = (avgNorthBoldVoltage-3300/2) / 30;
+SouthShielded_B = (avgSouthShieldedVoltage-3300/2)/30;
+SouthBold_B = (avgSouthBoldVoltage-3300/2) / 30;
+
+
+Distance = 0:1:30; % millimeters
+
+% plot(Distance,NorthBold1*3300/4095,'',Distance,NorthBold2*3300/4095,'',Distance,NorthBold3*3300/4095,'',Distance,NorthBold4*3300/4095)
+% title('NorthBold','FontSize',20)
+% legend('NorthBold1','NorthBold2','NorthBold3','NorthBold4')
+% xlabel('Distance Changed (mm)','FontSize',15,'FontWeight','bold')
+% ylabel('Voltage (mV)','FontSize',15,'FontWeight','bold')
+
+% plot(Distance,SouthBold_B,'LineWidth',2)
+
+% title('South Magnetic Flux Density','FontSize',20)
+% % legend('Average North Flux Density','Average North Shielded Flux Density')
+% xlabel('Distance Changed (mm)','FontSize',15,'FontWeight','bold')
+% ylabel('Magnetic Flux Density (mT)','FontSize',15,'FontWeight','bold')
+
+
+% plot(avgSouthBoldVoltage,SouthBold_B);
+% title('Equation Linearity (South)','FontSize',20)
+% % legend('Average North Flux Density','Average North Shielded Flux Density')
+% xlabel('Voltage (mV)','FontSize',15,'FontWeight','bold')
+% ylabel('Magnetic Flux Density (mT)','FontSize',15,'FontWeight','bold')
+
+plot(avgNorthBoldVoltage,NorthBold_B,'LineWidth',2);
+title('Equation Linearity (North)','FontSize',20)
+xlabel('Voltage (mV)','FontSize',15,'FontWeight','bold')
+ylabel('Magnetic Flux Density (mT)','FontSize',15,'FontWeight','bold')
+
+grid on;
+grid minor;
