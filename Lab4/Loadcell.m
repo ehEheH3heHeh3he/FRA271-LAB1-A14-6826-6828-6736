@@ -1,4 +1,4 @@
-% 98 ohm
+% s98 ohm
 
 calibrate_Voltage = [
     0.03, 0.11, 0.21, 0.32, 0.42, 0.54, 0.70, ...
@@ -19,12 +19,28 @@ weight_calculated = [
 
 yLinear = polyval(pLinear,calibrate_Voltage);
 
+%-------------------------------------------------------------------
+
 % Regression plot
 % plot(calibrate_Voltage, weight, 'o', Voltage, yLinear, '-');
+% 
+% title("Regression plot", "FontSize",15);
+% legend("Calibrate Voltage","Linear Regression");
+% 
 % grid on;
 % grid minor;
 
+%-------------------------------------------------------------------
+
 % Accuracy test
 plot(weight,weight_calculated,'',weight,weight);
+
+title("Accuracy test", "FontSize",15);
+legend("Load cell Weight","Correct Weight");
+
+grid on;
+grid minor;
+
+%-------------------------------------------------------------------
 
 fprintf('Weight = %.6f * Voltage + %.6f\n', pLinear(1), pLinear(2));

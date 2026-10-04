@@ -12,19 +12,23 @@ weight = [
 
 weight_calculated = [
     0.022, 0.512, 0.910, 1.405, 1.809, 2.284, 2.918, ...
-    3.391, 3.854, 4.250, 4.701, 5.172, 5.634, 6.004, ...
-    6.452, 6.911, 7.544, 8.215, 8.747, 9.309, 9.662 ];
+    3.391, 3.854, 4.230, 4.701, 5.172, 5.634, 6.004, ...
+    6.552, 7.191, 7.644, 8.215, 8.747, 9.109, 9.662 ];
 
 [pLinear,SLinear] = polyfit(calibrate_Voltage,weight,1);
 
 yLinear = polyval(pLinear,calibrate_Voltage);
 
 % Regression plot
-% plot(calibrate_Voltage, weight, 'o', Voltage, yLinear, '-');
-% grid on;
-% grid minor;
+plot(calibrate_Voltage, weight, 'o', Voltage, yLinear, '-');
+Linew
+title("Regression plot");
+legend("Calibrate Voltage","Linear Regression");
+
+grid on;
+grid minor;
 
 % Accuracy test
-plot(weight,weight_calculated,'',weight,weight);
+% plot(weight,weight_calculated,'',weight,weight);
 
 fprintf('Weight = %.6f * Voltage + %.6f\n', pLinear(1), pLinear(2));
