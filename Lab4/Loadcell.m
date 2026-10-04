@@ -1,4 +1,4 @@
-% s98 ohm
+% setup 98 ohm
 
 calibrate_Voltage = [
     0.03, 0.11, 0.21, 0.32, 0.42, 0.54, 0.70, ...
@@ -22,24 +22,28 @@ yLinear = polyval(pLinear,calibrate_Voltage);
 %-------------------------------------------------------------------
 
 % Regression plot
-% plot(calibrate_Voltage, weight, 'o', Voltage, yLinear, '-');
-% 
-% title("Regression plot", "FontSize",15);
-% legend("Calibrate Voltage","Linear Regression");
-% 
-% grid on;
-% grid minor;
+plot(calibrate_Voltage, weight, 'o', Voltage, yLinear, '-');
+
+title("Regression plot", "FontSize",15);
+legend("Calibrate Voltage","Linear Regression");
+xlabel('Weight')
+ylabel('Voltage')
+
+grid on;
+grid minor;
 
 %-------------------------------------------------------------------
 
 % Accuracy test
-plot(weight,weight_calculated,'',weight,weight);
-
-title("Accuracy test", "FontSize",15);
-legend("Load cell Weight","Correct Weight");
-
-grid on;
-grid minor;
+% plot(weight,weight_calculated,'',weight,weight);
+% 
+% title("Accuracy test", "FontSize",15);
+% legend("Load cell Weight","Correct Weight");
+% xlabel('actual weight')
+% ylabel('load cell weight')
+% 
+% grid on;
+% grid minor;
 
 %-------------------------------------------------------------------
 
